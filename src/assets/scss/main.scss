@@ -1,0 +1,191 @@
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/skel';
+@import '../css/font-awesome.min.css';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic');
+
+@import "css-grid";
+
+/*
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+	@include skel-breakpoints((
+		xlarge: '(max-width: 1680px)',
+		large: '(max-width: 1280px)',
+		medium: '(max-width: 980px)',
+		small: '(max-width: 736px)',
+		xsmall: '(max-width: 480px)',
+		xxsmall: '(max-width: 360px)'
+	));
+
+	@include skel-layout((
+		reset: 'full',
+		boxModel: 'border'
+	));
+
+	@mixin inner {
+		> .inner {
+			@include padding(4em, 0);
+			margin: 0 auto;
+			max-width: _size(inner);
+			width: calc(100% - 6em);
+
+			@include breakpoint(small) {
+				@include padding(3em, 0);
+				width: calc(100% - 3em);
+			}
+		}
+	}
+
+// Base.
+
+	@import 'base/page';
+	@import 'base/typography';
+
+// Component.
+
+	@import 'components/section';
+	@import 'components/form';
+	@import 'components/box';
+	@import 'components/icon';
+	@import 'components/image';
+	@import 'components/list';
+	@import 'components/table';
+	@import 'components/button';
+	@import 'components/tiles';
+	@import 'components/contact-method';
+	@import 'components/spotlights';
+
+// Layout.
+
+	@import 'layout/header';
+	@import 'layout/banner';
+	@import 'layout/main';
+	@import 'layout/contact';
+	@import 'layout/footer';
+	@import 'layout/wrapper';
+	@import 'layout/menu';
+	
+	.tiles, .tiles h3 {
+		color: white;
+
+	}
+	.tiles h3::after {
+		background-color: white !important;
+	}
+	.tiles article:after {
+    background-color: rgba(0, 0, 0, 0.35);
+	}
+	
+	#menu {
+		background: rgba(36,41,67,.95);
+		color: white;
+		.close::before {
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='20px' height='20px' viewBox='0 0 20 20' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23fff%3B stroke-width: 2%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='20' y2='20' /%3E%3Cline x1='20' y1='0' x2='0' y2='20' /%3E%3C/svg%3E");
+			
+		}
+	}
+	
+	
+#menu ul.links>li>a:not(.button) {
+  border-top: 1px solid rgba(212,212,255,.1);
+}
+
+#banner {
+	color: white;
+	h1 {
+		color: white;
+		&:after {
+			background-color: white;
+		}
+	}
+	&::after {
+		background: #242943;
+	}
+}
+
+#header {
+	color: white;
+	nav a.menu-link:before {
+	  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='32' viewBox='0 0 24 32' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 2px%3B stroke: %23fff%3B %7D%3C/style%3E%3Cline x1='0' y1='11' x2='24' y2='11' /%3E%3Cline x1='0' y1='21' x2='24' y2='21' /%3E%3Cline x1='0' y1='16' x2='24' y2='16' /%3E%3C/svg%3E");
+	}
+	.logo strong {
+		background-color: #fff;
+    color: #242943;
+	}
+}
+
+#contact {
+	>.inner >.list {
+		width: 100%;
+		border: 0 none;
+		display: flex;
+		padding-bottom: 80px;
+		section {
+			vertical-align: top;
+			flex: 1;
+			.contact-item {
+				margin: 0;
+				padding: 0;
+				border-right: 1px solid #ddd;
+				height: 100%;
+				padding: 20px 0;
+				padding-left: 60px;
+				h3 {
+					margin-bottom: 8px;
+				}
+				em {
+					font-size: 15px;
+					line-height: 20px;
+					display: block;;
+				}
+				.icons {
+					display: inline-block;
+					margin-left: 20px;
+					a.icon.alt {
+						margin-right: 10px;
+						&::before {
+							height: 30px;
+							width: 30px;
+							line-height: 30px;
+					    font-size: 16px;
+						}
+					}
+				}
+			}
+			&:last-child {
+				.contact-item {
+					border: 0 none;
+				}
+			}
+			&:first-child {
+				.contact-item {
+					padding-left: 0;
+				}
+			}
+		}
+		.sep {
+			padding-top: 15px;
+		}
+	}
+}
+
+#banner.la-haut {
+	> .inner header > :first-child:after {
+		display: none;
+	}
+}
+
+#header.classic {
+		background-color: #242943;
+	.logo {
+		strong {
+		}
+	}
+	nav a.menu-link:after {
+	}
+}
