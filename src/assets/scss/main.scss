@@ -123,18 +123,14 @@
 	>.inner >.list {
 		width: 100%;
 		border: 0 none;
-		display: flex;
 		padding-bottom: 80px;
 		section {
-			vertical-align: top;
-			flex: 1;
 			.contact-item {
 				margin: 0;
 				padding: 0;
-				border-right: 1px solid #ddd;
 				height: 100%;
 				padding: 20px 0;
-				padding-left: 60px;
+				border-bottom: 1px solid #ddd;
 				h3 {
 					margin-bottom: 8px;
 				}
@@ -168,8 +164,18 @@
 				}
 			}
 		}
-		.sep {
-			padding-top: 15px;
+	}
+}
+
+@media screen and (min-width: 981px) {
+	#contact {
+		>.inner >.list {
+			section {
+				.contact-item {
+					border-right: 1px solid #ddd;
+					border-bottom: 0 none;
+				}
+			}
 		}
 	}
 }
@@ -188,4 +194,14 @@
 	}
 	nav a.menu-link:after {
 	}
+}
+
+.spotlights > section {
+	border-top: 4px solid #EEE;
+	padding: 30px;
+	padding-left: 0;
+}
+.spotlights > section:nth-child(2n), .spotlights > section {
+	background: white;
+	padding-left: 30px;
 }
